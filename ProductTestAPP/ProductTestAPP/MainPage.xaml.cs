@@ -31,7 +31,7 @@ namespace ProductTestAPP
             //var response = await client.GetStringAsync("http://192.168.0.101:44344/Product/GetProducts");
             //var response = await client.GetStringAsync("http://192.168.43.196:45457/Product/GetProducts");
 
-            //var response = await client.GetStringAsync("http://192.168.0.102:45455/Product/GetProducts"); //its works
+            //var response = await client.GetStringAsync("http://192.168.0.102:45455/Product/GetProducts"); //it works
             var response = await client.GetStringAsync("http://productwebapi.azurewebsites.net/Product/GetProducts");
 
 
