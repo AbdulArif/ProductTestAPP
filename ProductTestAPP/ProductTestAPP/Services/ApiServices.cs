@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 using ProductTestAPP.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using ProductTestAPP.Models.Views;
 
 namespace ProductTestAPP.Services
 {
@@ -75,6 +76,8 @@ namespace ProductTestAPP.Services
             Debug.WriteLine(accessTokenExpiration);
 
             Debug.WriteLine(content);
+            Debug.WriteLine("accessToken"+ accessToken);
+            
 
             return accessToken;
         }

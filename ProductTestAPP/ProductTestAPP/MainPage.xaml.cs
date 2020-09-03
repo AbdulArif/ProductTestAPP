@@ -25,12 +25,6 @@ namespace ProductTestAPP
         private async void GetProducts()
         {
             HttpClient client = new HttpClient();
-            //var response = await client.GetStringAsync("https://localhost:44342/Product/GetProducts");
-            // var response = await client.GetStringAsync("http://localhost:56910/Product/GetProducts");
-            //var response = await client.GetStringAsync("http://45.64.225.33:56910/Product/GetProducts");
-            //var response = await client.GetStringAsync("http://192.168.0.101:44344/Product/GetProducts");
-            //var response = await client.GetStringAsync("http://192.168.43.196:45457/Product/GetProducts");
-
             //var response = await client.GetStringAsync("http://192.168.0.102:45455/Product/GetProducts"); //it works
             var response = await client.GetStringAsync("http://productwebapi.azurewebsites.net/Product/GetProducts");
 
