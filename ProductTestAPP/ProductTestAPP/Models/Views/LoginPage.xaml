@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:viewModels="clr-namespace:ProductTestAPP.Models" 
+             xmlns:viewModels1="clr-namespace:ProductTestAPP.ViewModels"
+             mc:Ignorable="d"
+             x:Class="ProductTestAPP.Models.Views.LoginPage">
+
+    <ContentPage.BindingContext>
+        <viewModels1:LoginViewModel/>
+    </ContentPage.BindingContext>
+
+    <StackLayout Orientation="Vertical"
+                 VerticalOptions="Center"
+                 Spacing="20"
+                 Padding="20">
+
+        <Entry Text="{Binding Username}" 
+               Placeholder="username"/>
+
+        <Entry Text="{Binding Password}"
+               Placeholder="password"
+               IsPassword="True"/>
+
+        <Button Command="{Binding LoginCommand}"
+                Text="Signin"
+                TextColor="White"
+                FontSize="30"
+                BackgroundColor="DeepSkyBlue"/>
+
+        <Button Text="Go to Ideas Page"
+                Clicked="NavigateToIdeasPage_OnClicked" />
+
+    </StackLayout>
+
+</ContentPage>

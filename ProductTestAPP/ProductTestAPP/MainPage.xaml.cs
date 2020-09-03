@@ -28,9 +28,13 @@ namespace ProductTestAPP
             //var response = await client.GetStringAsync("https://localhost:44342/Product/GetProducts");
             // var response = await client.GetStringAsync("http://localhost:56910/Product/GetProducts");
             //var response = await client.GetStringAsync("http://45.64.225.33:56910/Product/GetProducts");
-            //var response = await client.GetStringAsync("http://192.168.0.101:56910/Product/GetProducts");
-            var response = await client.GetStringAsync("http://192.168.43.196:45457/Product/GetProducts");
-        
+            //var response = await client.GetStringAsync("http://192.168.0.101:44344/Product/GetProducts");
+            //var response = await client.GetStringAsync("http://192.168.43.196:45457/Product/GetProducts");
+
+            //var response = await client.GetStringAsync("http://192.168.0.102:45455/Product/GetProducts"); //its works
+            var response = await client.GetStringAsync("http://productwebapi.azurewebsites.net/Product/GetProducts");
+
+
             var products = JsonConvert.DeserializeObject<List<Products>>(response);
             ProductListView.ItemsSource = products;
         }

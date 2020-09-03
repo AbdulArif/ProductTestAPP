@@ -10,10 +10,12 @@
     <ListView x:Name="ProductListView">
         <ListView.ItemTemplate>
             <DataTemplate>
-                <StackLayout Orientation="Horizontal">
-                    <Label Text="{Binding Name}" TextColor="Black"/>
-                    <Label Text="{Binding Price}" TextColor="Black"/>
-                </StackLayout>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Name}" TextColor="Black"/>
+                        <Label Text="{Binding Price}" TextColor="Black"/>
+                    </StackLayout>
+                </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
     </ListView>
