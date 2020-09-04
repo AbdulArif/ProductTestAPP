@@ -1,7 +1,6 @@
-﻿using ProductTestAPP.Models.Views;
-using System;
+﻿using ProductTestAPP.Models;
+using ProductTestAPP.Views;
 using Xamarin.Forms;
-using Xamarin.Forms.Xaml;
 
 namespace ProductTestAPP
 {
@@ -12,7 +11,11 @@ namespace ProductTestAPP
             InitializeComponent();
 
             //MainPage = new MainPage();
-            MainPage = new NavigationPage(new RegisterPage());
+            //MainPage = new NavigationPage(new RegisterPage());
+            MainPage = new NavigationPage(new GetProducts());
+            //MainPage = new NavigationPage(new EditOrDeleteProductPage());
+           // MainPage = new NavigationPage(new AddProductPage());
+           // MainPage = new NavigationPage(new SearchPage()); 
         }
 
         protected override void OnStart()

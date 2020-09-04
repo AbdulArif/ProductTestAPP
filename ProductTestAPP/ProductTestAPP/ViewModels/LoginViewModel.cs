@@ -1,10 +1,8 @@
 ﻿using ProductTestAPP.Services;
 using System.Windows.Input;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using Xamarin.Forms;
 using ProductTestAPP.Models;
+using ProductTestAPP.Helpers;
 
 namespace ProductTestAPP.ViewModels
 {
@@ -22,18 +20,15 @@ namespace ProductTestAPP.ViewModels
                 {
                     var accesstoken = await _apiServices.LoginAsync(Username, Password);
 
-                    //Settings.AccessToken = accesstoken;
+                    Settings.AccessToken = accesstoken;
                 });
             }
         }
 
         public LoginViewModel()
         {
-            RegisterBindingModel registerBindingModel = new RegisterBindingModel();
-            registerBindingModel.Email = Username;
-            registerBindingModel.Password = Password;
-            //Username = Settings.Username;
-            // Password = Settings.Password;
+            Username = Settings.Username;
+            Password = Settings.Password;
         }
     }
 }

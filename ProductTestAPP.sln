@@ -7,7 +7,12 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductTestAPP.Android", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductTestAPP.iOS", "ProductTestAPP\ProductTestAPP.iOS\ProductTestAPP.iOS.csproj", "{727135CB-E2C0-4DDF-B5CC-6EEE0838798D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductTestAPP", "ProductTestAPP\ProductTestAPP\ProductTestAPP.csproj", "{BEF9DAA8-9513-4D35-9AE7-8EB9183ADACD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ProductTestAPP", "ProductTestAPP\ProductTestAPP\ProductTestAPP.csproj", "{BEF9DAA8-9513-4D35-9AE7-8EB9183ADACD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{80765B94-92CE-4415-9045-FCE9851974C0}"
+	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

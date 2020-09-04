@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:viewModels="clr-namespace:ProductTestAPP.ViewModels"
+             mc:Ignorable="d"
+             x:Class="ProductTestAPP.Views.AddProductPage">
+    <ContentPage.BindingContext>
+        <viewModels:AddProductViewModel/>
+    </ContentPage.BindingContext>
+    <StackLayout VerticalOptions="Center">
+
+        <Entry Text="{Binding Name}" Placeholder="Enter Product Name"/>
+        <Entry Text="{Binding Category}" Placeholder="Enter Product Category"/>
+        <Entry Text="{Binding Price}" Placeholder="Enter Price"/>
+
+        <Button Command="{Binding AddCommand}"
+                Text="Add Product"/>
+    </StackLayout>
+</ContentPage>

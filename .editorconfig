@@ -1,0 +1,7 @@
+﻿[*.cs]
+
+# IDE0027: Use expression body for accessors
+csharp_style_expression_bodied_accessors = true:silent
+
+# CS1703: Multiple assemblies with equivalent identity have been imported: 'C:\Users\ITS_3\.nuget\packages\system.reflection.emit\4.3.0\ref\netstandard1.1\System.Reflection.Emit.dll' and 'C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\IDE\ReferenceAssemblies\Microsoft\Framework\Xamarin.iOS\v1.0\Facades\System.Reflection.Emit.dll'. Remove one of the duplicate references.
+dotnet_diagnostic.CS1703.severity = silent

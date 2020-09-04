@@ -1,0 +1,51 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             xmlns:viewModels="clr-namespace:ProductTestAPP.ViewModels"
+             x:Class="ProductTestAPP.GetProducts">
+    
+    <ContentPage.BindingContext>
+        <viewModels:GetProductsViewModel />
+    </ContentPage.BindingContext>
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Logout"
+                     Command="{Binding LogoutCommand}"
+                     Priority="1"/>
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Padding="20">
+      
+        <Button Command="{Binding GetProductsCommand}"
+                Text="Get All Products"
+                TextColor="White"
+                FontSize="30"
+                BackgroundColor="DodgerBlue"/>
+
+        <Button Clicked="Button_Delete"
+                Text="Edit Product"
+                TextColor="White"
+                FontSize="30"
+                BackgroundColor="DodgerBlue"/>
+
+        <!--<ListView x:Name="ProductListView">-->
+        <ListView ItemsSource="{Binding ProductListView}">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Orientation="Horizontal">
+                            
+                            <Label Text="{Binding Name}" TextColor="Black"/>
+                            <Label Text="{Binding Price}" TextColor="Black"/>
+                        </StackLayout>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+
+    </StackLayout>
+    
+</ContentPage>

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using Xamarin.Forms;
 using ProductTestAPP.Models;
-//using ProductTestAPP.Helpers;
+using ProductTestAPP.Helpers;
 
 namespace ProductTestAPP.ViewModels
 {
@@ -31,8 +31,8 @@ namespace ProductTestAPP.ViewModels
                     registerBindingModel.Email = Username;
                     registerBindingModel.Password = Password;
 
-                   // Settings.Username = Username;
-                   //Settings.Password = Password;
+                   Settings.Username = Username;
+                   Settings.Password = Password;
 
                     if (isRegistered)
                     {

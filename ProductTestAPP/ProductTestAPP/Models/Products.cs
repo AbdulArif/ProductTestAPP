@@ -11,8 +11,4 @@ namespace ProductTestAPP.Models
         public string Category { get; set; }
         public float Price { get; set; }
     }
-    //public class Root
-    //{
-    //    public List<Products> Product { get; set; }
-    //}
 }

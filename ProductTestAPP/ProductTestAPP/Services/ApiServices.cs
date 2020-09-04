@@ -4,11 +4,11 @@ using System.Diagnostics;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
-//using CheapIdeas.Helpers;
 using ProductTestAPP.Models;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using ProductTestAPP.Models.Views;
+using ProductTestAPP.Helpers;
 
 namespace ProductTestAPP.Services
 {
@@ -44,6 +44,8 @@ namespace ProductTestAPP.Services
 
             return false;
         }
+
+        
         #endregion
         //Login User
         #region
@@ -71,7 +73,7 @@ namespace ProductTestAPP.Services
             var accessTokenExpiration = jwtDynamic.Value<DateTime>(".expires");
             var accessToken = jwtDynamic.Value<string>("access_token");
 
-           // Settings.AccessTokenExpirationDate = accessTokenExpiration;
+            Settings.AccessTokenExpirationDate = accessTokenExpiration;
 
             Debug.WriteLine(accessTokenExpiration);
 
@@ -82,5 +84,72 @@ namespace ProductTestAPP.Services
             return accessToken;
         }
         #endregion
+        //Get ALL products 
+        #region
+        public async Task<List<Products>> GetProductsAsync(string accessToken)
+        {
+            var client = new HttpClient();
+
+            //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+            var json = await client.GetStringAsync(Constants.BaseApiAddress + "Product/GetProducts");
+
+            var prods = JsonConvert.DeserializeObject<List<Products>>(json);
+
+            return prods;
+        }
+        #endregion
+        //Add Product Details
+        #region
+        public async Task PostProductAsync(Products product, string accessToken)
+        {
+            var client = new HttpClient();
+           // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+            var json = JsonConvert.SerializeObject(product);
+            HttpContent content = new StringContent(json);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var response = await client.PostAsync(Constants.BaseApiAddress + "Product/PostProducts", content);
+        }
+        #endregion
+        //Update Product Details
+        public async Task PutProductAsync(Products product, string accessToken)
+        {
+            var client = new HttpClient();
+           // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+
+            var json = JsonConvert.SerializeObject(product);
+            HttpContent content = new StringContent(json);
+            content.Headers.ContentType = new MediaTypeHeaderValue("application/json");
+
+            var response = await client.PutAsync(
+                Constants.BaseApiAddress + "Product/PutProducts?Id=" + product.Id, content);
+        }
+        //Delete Product
+        public async Task DeleteProductAsync(int productId, string accessToken)
+        {
+            var client = new HttpClient();
+            // client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            productId = 5;
+             var response = await client.DeleteAsync(
+                Constants.BaseApiAddress + "Product/DeleteProducts?id=" + productId);
+        }
+        public async Task<List<Products>> SearchProductAsync(string keyword, string accessToken)
+        {
+            var client = new HttpClient();
+            //client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(
+            //    "Bearer", accessToken);
+
+            //var json = await client.GetStringAsync(
+            //    Constants.BaseApiAddress + "Product/GetProductById/" + keyword);
+
+            var json = await client.GetStringAsync(
+               Constants.BaseApiAddress + "Product/GetProductById?ID=" + keyword);
+
+            List<Products> products = JsonConvert.DeserializeObject<List<Products>>(json);
+
+            return products;
+        }
     }
 }
