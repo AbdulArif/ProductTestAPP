@@ -1,5 +1,7 @@
 ﻿using Newtonsoft.Json;
 using ProductTestAPP.Models;
+using ProductTestAPP.Models.Views;
+using ProductTestAPP.Views;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -19,18 +21,44 @@ namespace ProductTestAPP
         public MainPage()
         {
             InitializeComponent();
-            GetProducts();
+            //GetProducts();
         }
 
-        private async void GetProducts()
+        private async void Button_Login(object sender, EventArgs e)
         {
-            HttpClient client = new HttpClient();
-            //var response = await client.GetStringAsync("http://192.168.0.102:45455/Product/GetProducts"); //it works
-            var response = await client.GetStringAsync("http://productwebapi.azurewebsites.net/Product/GetProducts");
-
-
-            var products = JsonConvert.DeserializeObject<List<Products>>(response);
-            ProductListView.ItemsSource = products;
+            await Navigation.PushAsync(new LoginPage());
         }
+        private async void Button_SignUp(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new RegisterPage());
+        }
+        private async void Button_AddProduct(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new AddProductPage());
+        }
+        //private async void Button_EditOrDeleteProductp(object sender, EventArgs e)
+        //{
+        //    Products products;
+        //    await Navigation.PushAsync(new EditOrDeleteProductPage(products));
+        //}
+        private async void Button_SearchProduct(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new SearchPage());
+        }
+        private async void Button_AllProduct(object sender, EventArgs e)
+        {
+            await Navigation.PushAsync(new GetProducts());
+        }
+
+        //private async void GetProducts()
+        //{
+        //    HttpClient client = new HttpClient();
+        //    //var response = await client.GetStringAsync("http://192.168.0.102:45455/Product/GetProducts"); //it works
+        //    var response = await client.GetStringAsync("http://productwebapi.azurewebsites.net/Product/GetProducts");
+
+
+        //    var products = JsonConvert.DeserializeObject<List<Products>>(response);
+        //    ProductListView.ItemsSource = products;
+        //}
     }
 }

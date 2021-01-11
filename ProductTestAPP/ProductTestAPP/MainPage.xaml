@@ -6,8 +6,7 @@
              mc:Ignorable="d"
              x:Class="ProductTestAPP.MainPage">
 
-
-    <ListView x:Name="ProductListView">
+    <!--<ListView x:Name="ProductListView">
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
@@ -18,5 +17,14 @@
                 </ViewCell>
             </DataTemplate>
         </ListView.ItemTemplate>
-    </ListView>
+    </ListView>-->
+
+    <StackLayout Orientation="Vertical" VerticalOptions="Center">
+        <Button Text="Login" Clicked="Button_Login"/>
+        <Button Text="SignUp" Clicked="Button_SignUp"/>
+        <Button Text="Add Product" Clicked="Button_AddProduct"/>
+        <!--<Button Text="EditOrDeleteProduct" Clicked="Button_EditOrDeleteProduct"/>-->
+        <Button Text="Search Product" Clicked="Button_SearchProduct"/>
+        <Button Text="All Product" Clicked="Button_AllProduct"/>
+    </StackLayout>
 </ContentPage>

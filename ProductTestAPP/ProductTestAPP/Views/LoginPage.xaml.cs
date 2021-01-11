@@ -15,7 +15,6 @@ namespace ProductTestAPP.Models.Views
         public LoginPage()
         {
             InitializeComponent();
-            Navigation.PushAsync(new MainPage());
         }
 
         private async void NavigateToIdeasPage_OnClicked(object sender, EventArgs e)
